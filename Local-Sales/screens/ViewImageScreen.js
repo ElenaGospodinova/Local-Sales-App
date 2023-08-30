@@ -10,10 +10,12 @@ function ViewImageScreen(props) {
         <View style={styles.container} >
         <View style={styles.closeIcon}></View>
         <View style={styles.openIcon}></View>
-        <Image source={GardenChairs}
-        style={styles.image}
-        resizeMode='contain'
-        />
+        <View style={styles.imageContainer}>
+            <Image source={GardenChairs}
+            style={styles.image}
+            resizeMode='contain'
+            />
+        </View>
         </View>
     );
 }
@@ -23,9 +25,14 @@ const styles = StyleSheet.create({
         backgroundColor:colors.backgroundColor,
         flex: 1,
     },
+    imageContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     image:{
-        width:'100%',
-        height:'100%',
+        width:'70%',
+        height:'70%',
     },
     closeIcon:{
         width:80,

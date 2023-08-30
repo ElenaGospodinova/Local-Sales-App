@@ -1,19 +1,33 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Image} from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import SalesApp from '../app/assets/SalesApp.jpg';
 import Logo from '../app/assets/Logo.png';
 
 //rsf - shot cut 
 function WelcomeScreens(props) {
+    const navigation = useNavigation();
+
+    const navigateToViewImage = () => {
+        navigation.navigate('ViewImage'); 
+    };
+
+    
     return (
         <ImageBackground 
         source={SalesApp}
         style={styles.background}
         >
  
-        <View style={styles.loginButton}></View>
-        <View style={styles.registerButton}></View>
-        <Image source={Logo} style={styles.logo}/>
+            <TouchableOpacity 
+                style={styles.loginButton}
+                onPress={navigateToViewImage}
+            >
+                <Text style={styles.loginButton}>Go to Local Sales</Text>
+            </TouchableOpacity>
+            <View style={styles.registerButton}></View>
+            <Image source={Logo} style={styles.logo}/>
         </ImageBackground>
     );
 }
@@ -34,6 +48,7 @@ const styles = StyleSheet.create({
         width:'100%',
         height:70,
         backgroundColor:'#B799FF',
+        color:'white',
         
     },
     registerButton:{

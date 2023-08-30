@@ -1,23 +1,20 @@
-import React from 'react'
-import ViewImageScreen from './screens/ViewImageScreen.js';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ViewImageScreen from './screens/ViewImageScreen'; 
+import WelcomeScreens from './screens/welcomeScreens'; 
 
-// import { SafeAreaView } from 'react-native';
-//import WelcomeScreens from './screens/welcomeScreens.js';
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-  
-  
+function App() {
   return (
-   
-      //  <WelcomeScreens />
-      <ViewImageScreen/>
-      
-    
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome To Local Sales" >
+        <Stack.Screen name="Home" component={WelcomeScreens} />
+        <Stack.Screen name="ViewImage" component={ViewImageScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: 'white', // Set your desired background color here
-//   },
-// });
+
+export default App;
