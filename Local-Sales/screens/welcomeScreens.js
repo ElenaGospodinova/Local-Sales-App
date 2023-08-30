@@ -9,17 +9,16 @@ function WelcomeScreens(props) {
         <ImageBackground 
         source={SalesApp}
         style={styles.background}
-        
         >
  
         <View style={styles.loginButton}></View>
         <View style={styles.registerButton}></View>
-       
         <Image source={Logo} style={styles.logo}/>
-       
         </ImageBackground>
     );
 }
+
+
 //rnss -  shortcut 
 const styles = StyleSheet.create({
     background:{
