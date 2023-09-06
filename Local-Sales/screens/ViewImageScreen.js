@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View, StyleSheet} from 'react-native';
+import { Image, View, StyleSheet, Text, Button, Alert} from 'react-native';
 
 import GardenChairs from '../app/assets/gardenChairs.jpg';
 
@@ -8,15 +8,23 @@ import colors from '../app/assets/config/colors';
 function ViewImageScreen(props) {
     return (
         <View style={styles.container} >
-        <View style={styles.closeIcon}></View>
-        <View style={styles.openIcon}></View>
+        
+        <View style={styles.closeIcon}><Text style={styles.btnText}> Back</Text></View>
+        <View style={styles.openIcon}><Text style={styles.btnText}>Next</Text></View>
+        
         <View style={styles.imageContainer}>
             <Image source={GardenChairs}
             style={styles.image}
             resizeMode='contain'
             />
+            <Button 
+               title="Add"
+               onPress={() =>
+               Alert.prompt('Add to troley', 'Your Items', text => console.log(text))}
+               />
         </View>
         </View>
+        
     );
 }
 
@@ -24,6 +32,7 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor:colors.backgroundColor,
         flex: 1,
+        
     },
     imageContainer: {
         flex: 1,
@@ -42,7 +51,7 @@ const styles = StyleSheet.create({
         top:50,
         left:30,
         borderRadius:12,
-        borderColor:'red',
+        borderColor:'#ACBCFF',
         borderWidth: 1,
     },
     openIcon:{
@@ -55,6 +64,14 @@ const styles = StyleSheet.create({
         borderRadius:12,
         borderColor:'#ACBCFF',
         borderWidth: 2,
+    },
+    btnText:{
+        left:22,
+        top:12,
+        color:'white',
+        fontWeight:'bold',
+       
+       
     }
     
 })

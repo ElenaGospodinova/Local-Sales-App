@@ -10,6 +10,7 @@ function WelcomeScreens(props) {
     const navigation = useNavigation();
 
     const navigateToViewImage = () => {
+        
         navigation.navigate('ViewImage'); 
     };
 
@@ -18,15 +19,17 @@ function WelcomeScreens(props) {
         <ImageBackground 
         source={SalesApp}
         style={styles.background}
+        resizeMode='contain'
         >
  
             <TouchableOpacity 
                 style={styles.loginButton}
                 onPress={navigateToViewImage}
+                fadeDuration={1000}
             >
-                <Text style={styles.loginButton}>Go to Local Sales</Text>
+                <Text style={styles.registerButton}>Go to Sales App</Text>
             </TouchableOpacity>
-            <View style={styles.registerButton}></View>
+            <TouchableOpacity style={styles.registerButton}><Text>Go to Todays Sales</Text></TouchableOpacity>
             <Image source={Logo} style={styles.logo}/>
         </ImageBackground>
     );
@@ -45,19 +48,31 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     loginButton:{
-        width:'100%',
-        height:70,
+        width:'94%',
+        height:'8%',
+        top:-45,
+        padding:15,
         backgroundColor:'#B799FF',
-        color:'white',
+        
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:22,
+        
         
     },
     registerButton:{
-        width:'100%',
-        height:70,
+        width:'94%',
+        height:'8%',
+        bottom:142,
         backgroundColor:'#ACBCFF',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:22,
+        position:'absolute',
+       
     },
     logo:{
-      width: '20%',
+      width: '16%',
       height: '10%',
       flex: -1,
       alignItems:'center',
@@ -65,7 +80,8 @@ const styles = StyleSheet.create({
       zIndex: 3,
       position: 'absolute',
       borderRadius:12,
-      top:60,
+      top:10,
+      left:10,
    
     },
 })
