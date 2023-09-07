@@ -2,8 +2,10 @@ import React from 'react';
 import { ImageBackground, StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import SalesApp from '../app/assets/SalesApp.jpg';
-import Logo from '../app/assets/Logo.png';
+import AppText from '../app/assets/components/AppText';
+import colors from '../app/assets/config/colors';
+import Heading from '../app/assets/components/Heading';
+import AppButton from '../app/assets/components/AppButton';
 
 //rsf - shot cut 
 function WelcomeScreens(props) {
@@ -11,27 +13,42 @@ function WelcomeScreens(props) {
 
     const navigateToViewImage = () => {
         
-        navigation.navigate('ViewImage'); 
+        navigation.navigate('Sales Offers'); 
     };
 
     
     return (
-        <ImageBackground 
-        source={SalesApp}
-        style={styles.background}
-        resizeMode='contain'
-        >
- 
-            <TouchableOpacity 
-                style={styles.loginButton}
-                onPress={navigateToViewImage}
-                fadeDuration={1000}
-            >
-                <Text style={styles.registerButton}>Go to Sales App</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.registerButton}><Text>Go to Todays Sales</Text></TouchableOpacity>
-            <Image source={Logo} style={styles.logo}/>
-        </ImageBackground>
+        <View style={{flex: 1}}>
+            
+                <View style={styles.containerBackground}>
+                <ImageBackground 
+                source={require('../app/assets/SalesApp.jpg')}
+                style={styles.background}
+                resizeMode='contain'
+                >
+                    <Heading style={styles.textHeading}>Your Heading Here</Heading>
+                    <AppButton title='LogIn' onPress={() => navigation.navigate('Sales Offers')} />
+
+                    <TouchableOpacity 
+                        style={styles.loginButton}
+                        onPress={navigateToViewImage}
+                        fadeDuration={1000}
+                    >
+                        <AppText style={styles.textButton}>Go </AppText>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                    style={styles.registerButton}
+                    onPress={navigateToViewImage}
+                    >
+                        <AppText style={styles.textButton}>Todays Sales</AppText>
+                    </TouchableOpacity>
+                    
+                    <Image source={require('../app/assets/Logo.png')} style={styles.logo}/>
+                </ImageBackground>
+                
+            </View>
+    </View>
     );
 }
 
@@ -47,16 +64,21 @@ const styles = StyleSheet.create({
         zIndex: 1,
         position: 'relative',
     },
+    containerBackground:{
+        flex:1,
+        backgroundColor:colors.backgroundColor,
+        
+    },
     loginButton:{
         width:'94%',
         height:'8%',
         top:-45,
         padding:15,
-        backgroundColor:'#B799FF',
-        
+        backgroundColor:colors.primary,
         justifyContent:'center',
         alignItems:'center',
         borderRadius:22,
+        
         
         
     },
@@ -69,6 +91,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         borderRadius:22,
         position:'absolute',
+        
        
     },
     logo:{
