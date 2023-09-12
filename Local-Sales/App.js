@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ViewImageScreen from './screens/ViewImageScreen'; 
-import WelcomeScreens from './screens/WelcomeScreens'; 
+import WelcomeScreens from './screens/WelcomeScreens';
+import Items from './screens/Items';
 
 
 
@@ -17,8 +18,9 @@ function App() {
    
         <Stack.Screen name="Home" component={WelcomeScreens} />
         <Stack.Screen name="Sales Offers" component={ViewImageScreen} />
+        <Stack.Screen name="Items" component={Items} />
         
-        
+      
       </Stack.Navigator>
     </NavigationContainer>
     
