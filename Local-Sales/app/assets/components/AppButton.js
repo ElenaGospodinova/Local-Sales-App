@@ -1,32 +1,36 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 
-import colors from '../config/colors'
+import colors from '../config/colors';
 
 
-export default function AppButton({title}) {
+
+export default function AppButton({title, onPress, style }) {
   return (
-    <View style={styles.buttonLogin}>
-      <Text style={styles.text}>{title}</Text>
-    </View>
+    <TouchableOpacity style={[styles.buttonLogin, style]} onPress={onPress}>
+      <Text style={styles.titleLogin}>{title}</Text>
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
     buttonLogin:{
-        backgroundColor:colors.color,
+        backgroundColor:colors.green,
         borderRadius: 25,
         justifyContent:'center',
         alignItems:'center',
         padding:15,
-        width:'40%',
-        bottom:590,
-        marginLeft:192,
+        width:'30%',
+        marginBottom: 540,
+        marginLeft: 261, 
+        // bottom:600,
+        // marginLeft:248,
+        
         
     },
     titleLogin:{
-        color:colors.primary,
-        fontSize:18,
+        color:colors.color,
+        fontSize:15,
         textTransform:'uppercase',
         fontWeight:'bold',
     },

@@ -6,25 +6,23 @@ import { useNavigation } from '@react-navigation/native';
 import AppText from '../app/assets/components/AppText';
 import colors from '../app/assets/config/colors';
 
+
 function ViewImageScreen(props) {
 
     const navigation = useNavigation();
 
-    const navigateToWelcomeScreens = () => {
-        navigation.navigate('Home'); 
-    };
-
     return (
         <View style={styles.container} >
         
-        <TouchableOpacity  style={styles.closeIcon}  onPress={() => {navigateToWelcomeScreens('Home');console.log('button pressed'); }}>
-            <AppText style={styles.btnText}><AntDesign name="leftcircleo" size={24} color='white' /></AppText>
+        <TouchableOpacity  style={styles.closeIcon}  onPress={() => {navigation.navigate('Home');console.log('Navigating to Home'); }}>
+                <AppText style={styles.btnText}><AntDesign name="leftcircleo" size={24} color='white' /></AppText>
         </TouchableOpacity>
-
-        <View style={styles.openIcon}><AppText style={styles.btnText}><AntDesign name="rightcircleo" size={24} color='white' /></AppText></View>
+        <TouchableOpacity  style={styles.openIcon}  onPress={() => {navigation.navigate('Items');console.log('Navigating to Items'); }}>
+                <AppText style={styles.btnText}><AntDesign name="rightcircleo" size={24} color='white' /></AppText>
+        </TouchableOpacity>
         
         <View style={styles.imageContainer}>
-            <Image source={require('../app/assets/gardenChairs.jpg')}
+            <Image source={require('../app/assets/img/gardenChairs.jpg')}
             style={styles.image}
             resizeMode='contain'
             />
@@ -41,7 +39,7 @@ function ViewImageScreen(props) {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:colors.backgroundColor,
+        backgroundColor:colors.color,
         flex: 1,
         
     },
