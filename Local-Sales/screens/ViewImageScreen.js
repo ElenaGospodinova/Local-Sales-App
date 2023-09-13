@@ -1,90 +1,85 @@
 import React from 'react';
-import { Image, View, StyleSheet, Button, Alert, TouchableOpacity} from 'react-native';
+import { Image, View, StyleSheet, Button, Alert, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import AppText from '../app/assets/components/AppText';
 import colors from '../app/assets/config/colors';
 
-
 function ViewImageScreen(props) {
+  const navigation = useNavigation();
 
-    const navigation = useNavigation();
+  const navigateTo = (screenName) => {
+    navigation.navigate(screenName);
+    console.log(`Navigating to ${screenName}`);
+  };
 
-    return (
-        <View style={styles.container} >
-        
-        <TouchableOpacity  style={styles.closeIcon}  onPress={() => {navigation.navigate('Home');console.log('Navigating to Home'); }}>
-                <AppText style={styles.btnText}><AntDesign name="leftcircleo" size={24} color='white' /></AppText>
-        </TouchableOpacity>
-        <TouchableOpacity  style={styles.openIcon}  onPress={() => {navigation.navigate('Items');console.log('Navigating to Items'); }}>
-                <AppText style={styles.btnText}><AntDesign name="rightcircleo" size={24} color='white' /></AppText>
-        </TouchableOpacity>
-        
-        <View style={styles.imageContainer}>
-            <Image source={require('../app/assets/img/gardenChairs.jpg')}
-            style={styles.image}
-            resizeMode='contain'
-            />
-            <Button 
-               title="Add"
-               onPress={() =>
-               Alert.prompt('Add to troley', 'Your Items', text => console.log(text))}
-               />
-        </View>
-        </View>
-        
-    );
+  return (
+    <View style={styles.container}>
+     <TouchableOpacity style={styles.next} onPress={() => navigateTo('Items')}>
+        <AntDesign name="rightcircleo" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
+        <AntDesign name="leftcircleo" size={24} color="black" />
+      </TouchableOpacity>
+     
+
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('../app/assets/img/gardenChairs.jpg')}
+          style={styles.image}
+          resizeMode="contain"
+        />
+        <Button
+          title="Add"
+          onPress={() =>
+            Alert.prompt('Add to trolley', 'Your Items', (text) =>
+              console.log(text)
+            )
+          }
+        />
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor:colors.color,
-        flex: 1,
-        
-    },
-    imageContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        // shadowColor:'grey',
-        // shadowOffset:{width:-10, height:10},
-    },
-    image:{
-        width:'70%',
-        height:'70%',
-       
-        
-    },
-    closeIcon:{
-        width:80,
-        height:50,
-        backgroundColor: colors.primary,
-        position:'absolute',
-        top:50,
-        left:30,
-        borderRadius:12,
-        borderColor:colors.primary,
-        borderWidth: 2,
-    },
-    openIcon:{
-        width:80,
-        height:50,
-        backgroundColor:colors.secondary,
-        position:'absolute',
-        top:50,
-        right:30,
-        borderRadius:12,
-        borderColor:colors.secondary,
-        borderWidth: 2,
-    },
-    btnText:{
-        left:22,
-        top:12,
-        
-        
-       
-    }
-    
-})
+  container: {
+    backgroundColor: colors.color,
+    flex: 1,
+  },
+  imageContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: '70%',
+    height: '70%',
+  },
+  back: {
+    width: 50,
+    height: 30,
+    backgroundColor: colors.color,
+    position: 'absolute',
+    top: 50,
+    left: 30,
+    borderRadius: 22,
+    borderColor: colors.primary,
+    borderWidth: 2,
+    zIndex: 1, // Ensure the back button is on top
+  },
+  next: {
+    width: 50,
+    height: 30,
+    backgroundColor: colors.color,
+    position: 'absolute',
+    top: 50,
+    right: 34,
+    borderRadius: 22,
+    borderColor: colors.secondary,
+    borderWidth: 2,
+    zIndex: 1, // Ensure the next button is on top
+  },
+});
+
 export default ViewImageScreen;

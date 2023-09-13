@@ -14,7 +14,7 @@ function WelcomeScreens(props) {
     const navigation = useNavigation();
 
     const navigateItems = () => {
-        navigation.navigate('ViewImageScreen'); 
+        navigation.navigate('Sales Offers'); 
         navigation.navigate('Items');
     };
 
@@ -26,7 +26,7 @@ function WelcomeScreens(props) {
                 <ImageBackground 
                 source={require('../app/assets/SalesApp.jpg')}
                 style={styles.background}
-                resizeMode='conatin cover'
+                resizeMode='cover'
                 >
                     <Heading style={styles.tagline}>Explore Your Local Sales</Heading>
                      <AppButton title='LogIn' onPress={() => navigation.navigate('Sales Offers')} />
@@ -46,12 +46,12 @@ function WelcomeScreens(props) {
 const styles = StyleSheet.create({
     background:{
         flex:1,
-        height:'73%',
+        height:'80%',
         width:'100%',
         justifyContent:'flex-end',
         flexWrap: 'wrap',
         zIndex: 1,
-        position: 'relative',
+        position: 'absolute',
     },
     containerBackground:{
         flex:1,
@@ -69,16 +69,17 @@ const styles = StyleSheet.create({
       zIndex: 3,
       position: 'absolute',
       borderRadius:12,
-      top:10,
+      top:24,
       left:10,
    
     },
     tagline:{
-        fontSize: 27,
+        fontSize: 28,
         fontWeight:'700',
         justifyContent:'center',
         alignItems:'center',
         left: 34,
+        marginTop: 22,
        
     },
 })

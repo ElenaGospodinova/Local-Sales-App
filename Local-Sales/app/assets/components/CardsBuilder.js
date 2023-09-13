@@ -10,8 +10,10 @@ function CardsBuilder({title, subTitle, image}){
     return(
         <View style={styles.card}>
             <Image  style={styles.photo} source={image} />
-            <Text style={{color:colors.green}}>{title}</Text>
-            <Text style={{color:'green'}}>{subTitle}</Text>
+            <View style={styles.detailsContainer}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={{color:'green'}}>{subTitle}</Text>
+            </View>
         </View> 
     )
 }
@@ -20,21 +22,30 @@ function CardsBuilder({title, subTitle, image}){
 const styles = StyleSheet.create({
     card:{
         padding:20,
-        paddingTop:100,
+        paddingTop:50,
         borderRadius:15,
         backgroundColor:colors.color,
         marginBottom: 20,
-        height:330,
+        height:340,
         
     },
     photo:{
         width: '100%',
         height: 200,
-        alignContent:'center',
-        justifyContent:'center',
         borderRadius:12,
         
-    }
+    },
+    detailsContainer:{
+       padding:20,
+       justifyContent:'center',
+       left:10,
+    },
+    title:{
+        color:colors.green,
+        fontWeight:'bold',
+        marginVertical:6,
+    },
+
 })
 
 export default CardsBuilder;
