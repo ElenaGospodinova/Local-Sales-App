@@ -17,13 +17,14 @@ const styles = StyleSheet.create({
     goButton:{
         width:'95%',
         height:'8%',
-        top:-45,
+        top: 55,
         backgroundColor:colors.primary,
         justifyContent:'center',
         alignItems:'center',
         borderRadius:22,
-        left: 12,
-        margin:10,
+        marginTop:22,
+        marginLeft: -370,
+        position:'relative',
     },
     titleGo:{
         color:colors.color,
