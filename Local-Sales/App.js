@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ViewImageScreen from './screens/ViewImageScreen'; 
 import WelcomeScreens from './screens/WelcomeScreens';
 import Items from './screens/Items';
+import ListingDetailsScreen from './screens/ListingDetailsScreen';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Stack.Screen name="Home" component={WelcomeScreens} />
         <Stack.Screen name="Sales Offers" component={ViewImageScreen} />
         <Stack.Screen name="Items" component={Items} />
+        <Stack.Screen name="Listing" component={ListingDetailsScreen} />
         
       
       </Stack.Navigator>

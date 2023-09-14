@@ -1,19 +1,28 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
 
 import CardsBuilder from '../app/assets/components/CardsBuilder';
 
 function Items() {
   const navigation = useNavigation();
 
-  const navigateToWelcomeScreens = () => {
-      navigation.navigate('Home');
-      navigation.navigate('Sales Offers'); 
+  const navigateTo = (screenName) => {
+    navigation.navigate(screenName);
+    console.log(`Navigating to ${screenName}`);
   };
   return (
     
       <ScrollView contentContainerStyle={styles.container}>
+     
+     <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
+        <AntDesign name="rightcircleo" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
+        <AntDesign name="leftcircleo" size={24} color="black" />
+      </TouchableOpacity>
+     
       <CardsBuilder 
         title="Hand made turkish rugs" 
         subTitle="£54.00 each" 
