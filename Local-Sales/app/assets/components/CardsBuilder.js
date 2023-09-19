@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
         backgroundColor:colors.color,
         marginBottom: 20,
         height:340,
+        overflow:'hidden'
         
     },
     photo:{

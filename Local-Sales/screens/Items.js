@@ -1,8 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { AntDesign } from '@expo/vector-icons';
-
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import CardsBuilder from '../app/assets/components/CardsBuilder';
 
 function Items() {
@@ -10,25 +9,23 @@ function Items() {
 
   const navigateTo = (screenName) => {
     navigation.navigate(screenName);
-    console.log(`Navigating to ${screenName}`);
   };
+
   return (
-    
-      <ScrollView contentContainerStyle={styles.container}>
-     
-     <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
         <AntDesign name="rightcircleo" size={24} color="black" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
         <AntDesign name="leftcircleo" size={24} color="black" />
       </TouchableOpacity>
-     
+      
       <CardsBuilder 
-        title="Hand made turkish rugs" 
+        title="Handmade Turkish rugs" 
         subTitle="£54.00 each" 
         image={require('../app/assets/img/rugs.jpg')} 
       />
-       <CardsBuilder 
+      <CardsBuilder 
         title="Vintage bicycle" 
         subTitle="£24.00 each" 
         image={require('../app/assets/img/bicycle.jpg')} 
@@ -38,19 +35,27 @@ function Items() {
         subTitle="£20.00 each" 
         image={require('../app/assets/img/bedLamp.jpg')} 
       />
+      
     </ScrollView>
-  )
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1, // Ensures that the ScrollView takes the full height of the screen
-    padding: 16, // Add padding for spacing between CardsBuilder components
+    flexGrow: 1,
+    padding: 16,
+    marginTop:70,
+  },
+  next: {
+    position: 'absolute',
+    top: -33,
+    right: 20,
+  },
+  back: {
+    position: 'absolute',
+    top: -33,
+    left: 20,
   },
 });
-
-
-
 
 export default Items;
