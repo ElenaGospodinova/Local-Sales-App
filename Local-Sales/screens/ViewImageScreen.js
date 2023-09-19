@@ -16,10 +16,10 @@ function ViewImageScreen(props) {
   return (
     <View style={styles.container}>
      <TouchableOpacity style={styles.next} onPress={() => navigateTo('Items')}>
-        <AntDesign name="rightcircleo" size={24} color="black" />
+        <AntDesign name="rightcircleo" size={30} color="black" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
-        <AntDesign name="leftcircleo" size={24} color="black" />
+        <AntDesign name="leftcircleo" size={30} color="black" />
       </TouchableOpacity>
      
 
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
   back: {
     width: 50,
     height: 30,
-    backgroundColor: colors.color,
+    // backgroundColor: colors.color,
     position: 'absolute',
     top: 50,
     left: 30,
-    borderRadius: 22,
-    borderColor: colors.primary,
-    borderWidth: 2,
+    // borderRadius: 22,
+    // borderColor: colors.primary,
+    // borderWidth: 2,
     zIndex: 1, // Ensure the back button is on top
   },
   next: {
@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 50,
     right: 34,
-    borderRadius: 22,
-    borderColor: colors.secondary,
-    borderWidth: 2,
+    // borderRadius: 22,
+    // borderColor: colors.secondary,
+    // borderWidth: 2,
     zIndex: 1, // Ensure the next button is on top
   },
 });
