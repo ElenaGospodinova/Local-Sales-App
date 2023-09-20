@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import CardsBuilder from '../app/assets/components/CardsBuilder';
 
+import Screen from '../app/assets/components/Screen';
+
 function Items() {
   const navigation = useNavigation();
 
@@ -12,6 +14,7 @@ function Items() {
   };
 
   return (
+    <Screen>
     <ScrollView contentContainerStyle={styles.container}>
       <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
         <AntDesign name="rightcircleo" size={24} color="black" />
@@ -37,24 +40,27 @@ function Items() {
       />
       
     </ScrollView>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+   flexGrow: 1,
     padding: 16,
     marginTop:70,
   },
   next: {
     position: 'absolute',
-    top: -33,
+    top: -43,
     right: 20,
+    zIndex:12,
   },
   back: {
     position: 'absolute',
-    top: -33,
+    top: -43,
     left: 20,
+    zIndex:12,
   },
 });
 

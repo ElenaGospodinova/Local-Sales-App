@@ -22,7 +22,7 @@ function ViewImageScreen(props) {
         <AntDesign name="leftcircleo" size={30} color="black" />
       </TouchableOpacity>
      
-
+      
       <View style={styles.imageContainer}>
         <Image
           source={require('../app/assets/img/gardenChairs.jpg')}
@@ -39,6 +39,8 @@ function ViewImageScreen(props) {
         />
       </View>
     </View>
+    
+    
   );
 }
 
@@ -59,14 +61,14 @@ const styles = StyleSheet.create({
   back: {
     width: 50,
     height: 30,
-    // backgroundColor: colors.color,
+    backgroundColor: colors.color,
     position: 'absolute',
     top: 50,
     left: 30,
     // borderRadius: 22,
     // borderColor: colors.primary,
     // borderWidth: 2,
-    zIndex: 1, // Ensure the back button is on top
+    zIndex: 12, // Ensure the back button is on top
   },
   next: {
     width: 50,
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
     // borderRadius: 22,
     // borderColor: colors.secondary,
     // borderWidth: 2,
-    zIndex: 1, // Ensure the next button is on top
+    zIndex: 12, // Ensure the next button is on top
   },
 });
 
