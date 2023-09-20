@@ -6,7 +6,7 @@ import ViewImageScreen from './screens/ViewImageScreen';
 import WelcomeScreens from './screens/WelcomeScreens';
 import Items from './screens/Items';
 import ListingDetailsScreen from './screens/ListingDetailsScreen';
-
+import MessagesScreen from './screens/MessagesScreen';
 
 
 
@@ -22,6 +22,7 @@ function App() {
         <Stack.Screen name="Sales Offers" component={ViewImageScreen} />
         <Stack.Screen name="Items" component={Items} />
         <Stack.Screen name="Listing" component={ListingDetailsScreen} />
+        <Stack.Screen name="Messages" component={MessagesScreen} />
         
       
       </Stack.Navigator>
