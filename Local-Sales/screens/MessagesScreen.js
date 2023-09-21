@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState } from 'react';
 
-import { TouchableOpacity, FlatList, StyleSheet, View, Alert } from 'react-native';
+import { TouchableOpacity, FlatList, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -8,8 +8,9 @@ import ListItem from '../app/assets/components/ListItem';
 import colors from '../app/assets/config/colors';
 import Screen from '../app/assets/components/Screen';
 import ListSeparator from '../app/assets/components/ListSeparator';
+import ListItemDeleteAction from '../app/assets/components/ListItemDeleteAction';
  
-const messages =[
+const initialMessages =[
     {
         id:1,
         title:'Stefan Stefancik',
@@ -28,10 +29,26 @@ const messages =[
 
 function MessagesScreen(props) {
     const navigation = useNavigation();
+    const [messages, setMessages] = useState(initialMessages);
+    const [refreshing, setRefreshing] = useState(false);
 
   const navigateTo = (screenName) => {
     navigation.navigate(screenName);
   };
+    
+   
+
+
+  //handling the delete message
+  const handleDelete = (message) => {
+      //delete the message from the messages array
+      //call the server to delete the message from the backend
+      //we need state hook
+        setMessages(messages.filter((m) => m.id !== message.id));
+  }
+
+
+    
 
     return (
         <Screen>
@@ -50,8 +67,24 @@ function MessagesScreen(props) {
 
                         title={item.title}
                         subTitle={item.description}
-                        image={item.image}  
-                        onPress={() => Alert.prompt("Send Quick Massage")}
+                        image={item.image} 
+                        onPress={() => console.log('Message selected', item)}
+                        renderRightActions={() => 
+                        
+                            <ListItemDeleteAction onPress={() => handleDelete(item)} />}
+                        // onPress={() => Alert.prompt("Send Quick Massage")}
+                        refreshing={refreshing}
+                        onRefresh={() => {
+                            setMessages([
+                                {
+                                    id: 3, // Assign a new unique ID
+                                    title: 'Vinicius Wiesehofer.',
+                                    description: 'Front End Developer',
+                                    image: require('../app/assets/img/vinicius-wiesehofer.jpg'),
+                                },
+                            ]);
+                            }}
+
                         />
                     
                     )}  
