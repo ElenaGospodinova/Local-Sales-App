@@ -1,0 +1,27 @@
+import { View } from 'react-native'
+import React from 'react'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+
+export default function Icon({name,
+     size=42,
+     backgroundColor='#000', 
+     iconColor = '#fff'
+    }) {
+  return (
+    <View style={{width:size,
+    height:size,
+    borderRadius:size/2,
+    backgroundColor,
+    justifyContent:'center',
+    alignItems:'center',
+    //padding: 12,
+    }}>
+     
+      <MaterialCommunityIcons 
+        name={name} 
+        color={iconColor}
+        size={size * 0.6}
+        />
+    </View>
+  )
+}

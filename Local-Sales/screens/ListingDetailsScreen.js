@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import colors from '../app/assets/config/colors';
 
+import colors from '../app/assets/config/colors';
 import ListItem from '../app/assets/components/ListItem';
 
 function ListingDetailsScreen(props) {
@@ -14,7 +14,7 @@ function ListingDetailsScreen(props) {
   };
 
   return (
-    <View>
+    <View style={styles.screen}>
 
       <TouchableOpacity style={styles.next} onPress={() => navigateTo('Messages')}>
         <AntDesign name="rightcircleo" size={24} color="black" />
@@ -40,10 +40,15 @@ function ListingDetailsScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  screen:{
+    backgroundColor:colors.gradient,
+
+  },
   detailsContainer: {
     padding: 20,
+    height:'100%',
+    backgroundColor:colors.lightGray,
 
-    
   },
   image: {
     marginTop:80,

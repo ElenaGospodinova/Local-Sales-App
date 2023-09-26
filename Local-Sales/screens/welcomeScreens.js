@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         zIndex: 1,
         position: 'absolute',
+        
     },
     containerBackground:{
         flex:1,

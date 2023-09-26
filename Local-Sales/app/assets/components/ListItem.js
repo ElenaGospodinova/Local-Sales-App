@@ -4,17 +4,18 @@ import { View, StyleSheet, Image, Text,TouchableHighlight  } from 'react-native'
 
 import colors from '../config/colors';
 
-function ListItem({title, subTitle, image, onPress,renderRightActions}) {
+function ListItem({title, subTitle, image, ImageComponent, onPress,renderRightActions}) {
     return (
         <Swipeable renderRightActions={renderRightActions}>
             <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
                 <View style={styles.container}>
                     <View>
-                    <Image source={image} style={styles.image} resizeMode='cover'/>
+                    {ImageComponent}
+                    {image && <Image source={image} style={styles.image} resizeMode='cover'/>}
                     </View>
                     <View style={styles.userContainer}>
                         <Text style={styles.title}>{title}</Text>
-                        <Text style={styles.subTitle}>{subTitle}</Text>
+                       {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
                     </View>
                 </View>
             </TouchableHighlight>
@@ -26,13 +27,14 @@ const styles = StyleSheet.create({
     container:{
         flexDirection: 'row',
         padding:15,
+    
        
     },
     image:{
         width: 100,
         height: 100,
         borderRadius: 50,
-        borderTopStartRadius:12,
+        borderTopStartRadius:10,
         margin: 10,
     },
     title:{
@@ -40,10 +42,11 @@ const styles = StyleSheet.create({
 
     },
     subTitle:{
-        color: colors.medium,
+        color: colors.green,
     },
     userContainer:{
         margin:10,
+        justifyContent:'center',
         
     },
 

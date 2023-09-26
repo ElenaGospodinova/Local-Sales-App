@@ -8,6 +8,9 @@ import WelcomeScreens from './screens/WelcomeScreens';
 import Items from './screens/Items';
 import ListingDetailsScreen from './screens/ListingDetailsScreen';
 import MessagesScreen from './screens/MessagesScreen';
+import AccountScreen from './screens/AccountScreen';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +24,7 @@ function App() {
           <Stack.Screen name="Items" component={Items} />
           <Stack.Screen name="Listing" component={ListingDetailsScreen} />
           <Stack.Screen name="Messages" component={MessagesScreen} />
+          <Stack.Screen name="Account" component={AccountScreen} />
         </Stack.Navigator>
       </NavigationContainer>
    </GestureHandlerRootView>

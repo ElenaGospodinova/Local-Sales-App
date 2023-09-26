@@ -22,7 +22,20 @@ const initialMessages =[
         title:'Rebecca Walker',
         description: 'Back End Developer',
         image:require('../app/assets/img/rebecca-walker.jpg')
-    }
+    },
+    {
+        id:3,
+        title:'Maria Garsia',
+        description: 'Front End Developer',
+        image:require('../app/assets/img/Maria_Garsia.jpg')
+    },
+    {
+        id:4,
+        title:'Patric Smith',
+        description: 'Full stack Developer',
+        image:require('../app/assets/img/Patric_Smith.jpg')
+    },
+
 ]
 
 
@@ -51,8 +64,8 @@ function MessagesScreen(props) {
     
 
     return (
-        <Screen>
-            <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
+        <Screen >
+            <TouchableOpacity style={styles.next} onPress={() => navigateTo('Account')}>
                 <AntDesign name="rightcircleo" size={24} color="black" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
@@ -78,7 +91,7 @@ function MessagesScreen(props) {
                             setMessages([
                                 {
                                     id: 3, // Assign a new unique ID
-                                    title: 'Vinicius Wiesehofer.',
+                                    title: 'Vinicius Wiesehofer',
                                     description: 'Front End Developer',
                                     image: require('../app/assets/img/vinicius-wiesehofer.jpg'),
                                 },
@@ -101,7 +114,8 @@ const styles = StyleSheet.create({
     messages:{
         marginTop:70,
         color: colors.primary,
-        },
+        backgroundColor:colors.lightGray,
+    },
     next: {
       position: 'absolute',
       top: 33,
