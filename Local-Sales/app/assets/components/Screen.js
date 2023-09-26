@@ -1,6 +1,7 @@
 import React from 'react';
 import Constants  from 'expo-constants';
 
+import colors from '../config/colors';
 import { SafeAreaView, StyleSheet } from 'react-native';
 
 
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
     screen:{
         paddingTop: Constants.statusBarHeight,
         flex:1,
+        backgroundColor:colors.gradient,
     },
 });
 
