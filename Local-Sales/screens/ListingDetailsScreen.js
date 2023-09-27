@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
 import colors from '../app/assets/config/colors';
+
 import ListItem from '../app/assets/components/ListItem';
 
 function ListingDetailsScreen(props) {

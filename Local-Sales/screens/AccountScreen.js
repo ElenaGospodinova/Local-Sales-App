@@ -1,6 +1,8 @@
-import { View } from 'react-native'
 import React from 'react'
-import { FlatList, StyleSheet } from 'react-native'
+
+import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import ListSeparator from '../app/assets/components/ListSeparator'
 import Screen from '../app/assets/components/Screen'
@@ -31,8 +33,23 @@ const menuItems = [
 
 
 function AccountScreen(props) {
+
+    const navigation = useNavigation();
+
+    const navigateTo = (screenName) => {
+    navigation.navigate(screenName);
+    };
+
+
   return (
     <Screen>
+    <TouchableOpacity style={styles.next} onPress={() => navigateTo('Input')}>
+        <AntDesign name="rightcircleo" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
+        <AntDesign name="leftcircleo" size={24} color="black" />
+      </TouchableOpacity>
+
         <View style={styles.container}>
       {/* <Icon 
         name='email' 
@@ -76,10 +93,20 @@ function AccountScreen(props) {
 
 const styles = StyleSheet.create({
     container:{
-        marginVertical: 20,
+        marginVertical: 50,
         backgroundColor:colors.lightGray,
         
     },
-    
+    next: {
+        position: 'absolute',
+        top: 13,
+        right: 20,
+        
+    },
+    back: {
+        position: 'absolute',
+        top: 13,
+        left: 20,
+    },
 })
 export default AccountScreen;

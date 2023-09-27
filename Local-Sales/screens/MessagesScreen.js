@@ -1,6 +1,6 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 
-import { TouchableOpacity, FlatList, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -42,11 +42,12 @@ const initialMessages =[
 
 function MessagesScreen(props) {
     const navigation = useNavigation();
+
     const [messages, setMessages] = useState(initialMessages);
     const [refreshing, setRefreshing] = useState(false);
 
-  const navigateTo = (screenName) => {
-    navigation.navigate(screenName);
+    const navigateTo = (screenName) => {
+      navigation.navigate(screenName);
   };
     
    
