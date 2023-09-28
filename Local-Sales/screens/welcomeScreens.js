@@ -29,7 +29,7 @@ function WelcomeScreens(props) {
                 resizeMode='cover'
                 >
                     <Heading style={styles.tagline}>Explore Your Local Sales</Heading>
-                     <AppButton title='LogIn' onPress={() => navigation.navigate('Sales Offers')} />
+                     <AppButton title='LogIn' onPress={() => navigation.navigate('Input')} />
                      <WelcomeButtonGo title='Today`s Sales' onPress={() => navigation.navigate('Sales Offers')} color='green'/>
                      <WelcomeButtonGo title="All Local Sales" onPress={() => navigation.navigate('Items')} color='primary'/>
                     

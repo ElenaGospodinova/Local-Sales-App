@@ -43,7 +43,7 @@ function AccountScreen(props) {
 
   return (
     <Screen>
-    <TouchableOpacity style={styles.next} onPress={() => navigateTo('Input')}>
+    <TouchableOpacity style={styles.next} onPress={() => navigateTo('Messages')}>
         <AntDesign name="rightcircleo" size={24} color="black" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
