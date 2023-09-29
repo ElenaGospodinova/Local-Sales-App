@@ -2,34 +2,30 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-
 import Screen from '../app/assets/components/Screen';
 import InputText from '../app/assets/components/InputText';
 import AppButton from '../app/assets/components/AppButton';
 
-
-export default function InputScreen({icon, ...otherProps}) {
+export default function InputScreen() {
   const navigation = useNavigation();
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleLogIn = () => {
-    if (!firstName || !lastName) {
+    if (!fullName || !email) {
       Alert.alert('Welcome to Local Sales App');
-      return;
+      navigation.navigate('Account');
+    } else {
+      console.log('Navigating to Items screen');
+    
     }
-
-    // Navigate to the 'Items' screen here
-    navigation.navigate('Items');
   };
 
   return (
     <Screen>
-
-      <InputText />
+      <InputText onChangeText={(text) => setFullName(text)}  />
       <View style={styles.btn}>
-        <AppButton  onPress={handleLogIn} title="LogIn" />
+        <AppButton onPress={handleLogIn} title="LogIn" />
       </View>
     </Screen>
   );
@@ -37,7 +33,7 @@ export default function InputScreen({icon, ...otherProps}) {
 
 const styles = StyleSheet.create({
   btn: {
-    top:122,
-    right:'30%',
+    top: 162,
+    right: '30%',
   },
 });

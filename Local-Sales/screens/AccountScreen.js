@@ -9,6 +9,7 @@ import Screen from '../app/assets/components/Screen'
 import ListItem from '../app/assets/components/ListItem'
 import colors from '../app/assets/config/colors'
 import Icon from '../app/assets/components/Icon'
+
 //import Icon from '../app/assets/components/Icon'
 
 
@@ -58,6 +59,9 @@ function AccountScreen(props) {
         iconColor="white"
         
         /> */}
+
+        
+
         <ListItem 
             title='Elena Gospodinova' 
             subTitle='gospodinovaelena@yahoo.co.uk' 
@@ -80,6 +84,7 @@ function AccountScreen(props) {
             }
                 />
      </View>
+  
      <View>
          <ListItem
             title='Log Out'
