@@ -1,36 +1,28 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Platform,  Text} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { View, TextInput, StyleSheet, Text} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 import Screen from './Screen';
 import colors from '../config/colors';
 import defaultStyles from '../config/styles';
+import AppText from '../components/AppText';
 
 
-export default function InputText({icon, ...otherProps}) {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
+export default function AppPicker({icon, placeholder, ...otherProps}) {
+  
 
   return (
     
-    <Screen>
+    <Screen style={styles.picker}>
       <View style={styles.info}>
         <Text style={styles.text}>Please enter both names and email.</Text> 
       </View>
     
       <View style={styles.container}>
-      <Ionicons name="person" size={24} color={colors.green} style={styles.icon}/>
-        
-          <TextInput style={styles.textInput}
-          onChangeText={(text) => setFullName(text)}
-            keyboardType='email-address'
-            maxLength={45}
-            placeholder="Full Name" 
-            clearButtonMode='always'
-            {...otherProps}
-           
-          />
+        <MaterialCommunityIcons name="tag" size={24} color={colors.green} style={styles.icon} />
+        <AppText>{placeholder}</AppText>
       </View>
 
       <View style={styles.container}>
@@ -39,7 +31,7 @@ export default function InputText({icon, ...otherProps}) {
           onChangeText={(text) => setEmail(text)}
             keyboardType='email-address'
             maxLength={45}
-            placeholder="Email" 
+            // placeholder="Email" 
             clearButtonMode='always'
             {...otherProps}
           />
@@ -68,8 +60,11 @@ const styles = StyleSheet.create({
   },
   icon:{
     marginRight:10,
-  }
-  ,
+  },
+  picker:{
+      backgroundColor:colors.medium,
+      width:'100%',
+  },
   text:{
     color:colors.green,
     marginLeft:25,

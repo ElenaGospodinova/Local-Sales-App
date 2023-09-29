@@ -4,6 +4,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 import colors from '../app/assets/config/colors';
+import AppPicker from '../app/assets/components/AppPicker';
+import InputText from '../app/assets/components/InputText';
 
 function ViewImageScreen(props) {
   const navigation = useNavigation();
@@ -14,6 +16,7 @@ function ViewImageScreen(props) {
   };
 
   return (
+    
     <View style={styles.container}>
      <TouchableOpacity style={styles.next} onPress={() => navigateTo('Items')}>
         <AntDesign name="rightcircleo" size={30} color="black" />
@@ -37,6 +40,10 @@ function ViewImageScreen(props) {
             )
           }
         />
+        <View style={{width:'40%'}}>
+          <AppPicker />
+          
+        </View>
       </View>
     </View>
     
@@ -55,8 +62,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: '70%',
-    height: '70%',
+    width: '50%',
+    height: '50%',
   },
   back: {
     width: 50,

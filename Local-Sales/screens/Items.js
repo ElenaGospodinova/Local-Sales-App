@@ -15,31 +15,31 @@ function Items() {
 
   return (
     <Screen>
-    <ScrollView contentContainerStyle={styles.container}>
-      <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
-        <AntDesign name="rightcircleo" size={24} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
-        <AntDesign name="leftcircleo" size={24} color="black" />
-      </TouchableOpacity>
-      
-      <CardsBuilder 
-        title="Handmade Turkish rugs" 
-        subTitle="£54.00 each" 
-        image={require('../app/assets/img/rugs.jpg')} 
-      />
-      <CardsBuilder 
-        title="Vintage bicycle" 
-        subTitle="£24.00 each" 
-        image={require('../app/assets/img/bicycle.jpg')} 
-      />
-      <CardsBuilder 
-        title="Stylish bedside lamp" 
-        subTitle="£20.00 each" 
-        image={require('../app/assets/img/bedLamp.jpg')} 
-      />
-      
-    </ScrollView>
+      <ScrollView contentContainerStyle={styles.container}>
+        <TouchableOpacity style={styles.next} onPress={() => navigateTo('Listing')}>
+          <AntDesign name="rightcircleo" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.back} onPress={() => navigateTo('Home')}>
+          <AntDesign name="leftcircleo" size={24} color="black" />
+        </TouchableOpacity>
+        
+        <CardsBuilder 
+          title="Handmade Turkish rugs" 
+          subTitle="£54.00 each" 
+          image={require('../app/assets/img/rugs.jpg')} 
+        />
+        <CardsBuilder 
+          title="Vintage bicycle" 
+          subTitle="£24.00 each" 
+          image={require('../app/assets/img/bicycle.jpg')} 
+        />
+        <CardsBuilder 
+          title="Stylish bedside lamp" 
+          subTitle="£20.00 each" 
+          image={require('../app/assets/img/bedLamp.jpg')} 
+        />
+        
+      </ScrollView>
     </Screen>
   );
 }
@@ -47,18 +47,18 @@ function Items() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    padding: 16,
+    padding: 17,
     marginTop:70,
   },
   next: {
     position: 'absolute',
-    top: -43,
+    top: -13,
     right: 20,
     zIndex:12,
   },
   back: {
     position: 'absolute',
-    top: -43,
+    top: -13,
     left: 20,
     zIndex:12,
   },
