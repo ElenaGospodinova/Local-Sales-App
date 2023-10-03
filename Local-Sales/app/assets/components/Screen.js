@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight,
         flex:1,
         backgroundColor:colors.gradient,
+        width:'100%'
     },
 });
 

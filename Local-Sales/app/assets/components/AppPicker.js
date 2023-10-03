@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text, Button, TouchableWithoutFeedback, Modal, Alert } from 'react-native';
+import { View, TextInput, StyleSheet, Text, Button,  Modal, Alert, TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -10,13 +10,14 @@ import colors from '../config/colors';
 import defaultStyles from '../config/styles';
 import AppText from '../components/AppText';
 
+
 export default function AppPicker({ icon, placeholder, ...otherProps }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [email, setEmail] = useState(''); // Define the email state here
 
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+      <TouchableOpacity  onPress={() => setModalVisible(true)}>
         <Screen style={styles.picker}>
           <View style={styles.info}>
             <Text style={styles.text}>Please enter both names and email.</Text>
@@ -41,7 +42,7 @@ export default function AppPicker({ icon, placeholder, ...otherProps }) {
             />
           </View>
         </Screen>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
       <Modal
         animationType="slide"
         transparent={true}
@@ -51,8 +52,8 @@ export default function AppPicker({ icon, placeholder, ...otherProps }) {
           setModalVisible(false); // Update modal state directly without toggling
         }}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          <Screen>
-            <Button title='Close' onPress={() => setModalVisible(false)} />
+          <Screen >
+            <Button title='Close'   onPress={() => setModalVisible(false)} />
           </Screen>
         </View>
       </Modal>

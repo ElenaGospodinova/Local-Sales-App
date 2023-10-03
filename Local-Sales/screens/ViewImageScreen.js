@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { Image, View, StyleSheet, Button, Alert, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
