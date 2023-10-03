@@ -3,11 +3,13 @@ import { Image, View, StyleSheet, Button, Alert, TouchableOpacity } from 'react-
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
+
 import colors from '../app/assets/config/colors';
 import AppPicker from '../app/assets/components/AppPicker';
-import InputText from '../app/assets/components/InputText';
 
-function ViewImageScreen(props) {
+
+function ViewImageScreen(props, ...otherprops) {
+  const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
 
   const navigateTo = (screenName) => {
@@ -40,9 +42,9 @@ function ViewImageScreen(props) {
             )
           }
         />
-        <View style={{width:'40%'}}>
-          <AppPicker />
-          
+        <View style={{width:'70%'}}>
+        <AppPicker placeholder="Category" icon='category' name='chavron-down' />
+       
         </View>
       </View>
     </View>
@@ -62,8 +64,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: '50%',
+    width: '60%',
     height: '50%',
+    marginTop:-122,
   },
   back: {
     width: 50,
@@ -75,7 +78,7 @@ const styles = StyleSheet.create({
     // borderRadius: 22,
     // borderColor: colors.primary,
     // borderWidth: 2,
-    zIndex: 12, // Ensure the back button is on top
+    zIndex: 12,
   },
   next: {
     width: 50,
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
     // borderRadius: 22,
     // borderColor: colors.secondary,
     // borderWidth: 2,
-    zIndex: 12, // Ensure the next button is on top
+    zIndex: 12, 
   },
 });
 
