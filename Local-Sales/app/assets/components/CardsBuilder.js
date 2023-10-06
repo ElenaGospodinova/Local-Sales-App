@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         paddingTop:50,
         borderRadius:15,
         backgroundColor:colors.color,
-        marginBottom: 20,
+        marginBottom: 66,
         height:340,
         overflow:'hidden'
         
