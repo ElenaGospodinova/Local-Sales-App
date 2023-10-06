@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text, Button,  Modal, Alert, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, Text, Button,  Modal, Alert, TouchableOpacity, FlatList } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -9,9 +9,10 @@ import Screen from './Screen';
 import colors from '../config/colors';
 import defaultStyles from '../config/styles';
 import AppText from '../components/AppText';
+import PickerItem from './PickerItem';
 
 
-export default function AppPicker({ icon, placeholder, ...otherProps }) {
+export default function AppPicker({ icon, items, placeholder, ...otherProps }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [email, setEmail] = useState(''); // Define the email state here
 
@@ -54,6 +55,16 @@ export default function AppPicker({ icon, placeholder, ...otherProps }) {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           <Screen >
             <Button title='Close'   onPress={() => setModalVisible(false)} />
+            <FlatList 
+                data={items}
+                keyExtractor={(item) => item.value.toString()} 
+                renderItem={({ item }) => (
+                    <PickerItem  
+                        label={item.label}
+                        onPress={() => console.log(item)}
+                    />
+                )}
+            />
           </Screen>
         </View>
       </Modal>

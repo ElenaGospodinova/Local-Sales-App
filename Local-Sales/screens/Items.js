@@ -38,6 +38,11 @@ function Items() {
           subTitle="£20.00 each" 
           image={require('../app/assets/img/bedLamp.jpg')} 
         />
+          <CardsBuilder 
+          title="Summer long dress" 
+          subTitle="£8.00 each" 
+          image={require('../app/assets/img/summer_dresses.jpg')} 
+        />
         
       </ScrollView>
     </Screen>
@@ -48,17 +53,18 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 17,
-    marginTop:70,
+    marginTop:120,
+    
   },
   next: {
     position: 'absolute',
-    top: -13,
+    top: -53,
     right: 20,
     zIndex:12,
   },
   back: {
     position: 'absolute',
-    top: -13,
+    top: -53,
     left: 20,
     zIndex:12,
   },

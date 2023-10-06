@@ -8,7 +8,15 @@ import colors from '../app/assets/config/colors';
 import AppPicker from '../app/assets/components/AppPicker';
 
 
-function ViewImageScreen(props, ...otherprops) {
+const categories =[
+  { label: 'Furniture', value:2},
+  { label: 'Activities', value:3},
+  { label: 'Fashion', value:3},
+
+
+]
+
+function ViewImageScreen(props, ...otherProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
 
@@ -43,7 +51,11 @@ function ViewImageScreen(props, ...otherprops) {
           }
         />
         <View style={{width:'70%'}}>
-        <AppPicker placeholder="Category" icon='category' name='chavron-down' />
+        <AppPicker 
+          placeholder="Category" 
+          items={categories} 
+          icon='category'
+          name='chavron-down' />
        
         </View>
       </View>
