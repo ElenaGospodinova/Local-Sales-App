@@ -20,6 +20,8 @@ function ViewImageScreen(props, ...otherProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
 
+  const [category, setCategory] = useState(categories[0]);
+
   const navigateTo = (screenName) => {
     navigation.navigate(screenName);
     console.log(`Navigating to ${screenName}`);
@@ -52,6 +54,9 @@ function ViewImageScreen(props, ...otherProps) {
         />
         <View style={{width:'70%'}}>
         <AppPicker 
+          selectedItem={category}
+          onSelectItem={item => setCategory(item)}
+
           placeholder="Category" 
           items={categories} 
           icon='category'
