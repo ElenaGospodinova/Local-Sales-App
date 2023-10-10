@@ -29,11 +29,11 @@ function WelcomeScreens(props) {
                 resizeMode='cover'
                 >
                     <Heading style={styles.tagline}>Explore Your Local Sales</Heading>
-                     <AppButton title='LogIn' onPress={() => navigation.navigate('Input')} />
+                     <AppButton title='LogIn' onPress={() => navigation.navigate('LogIn')} />
                      <WelcomeButtonGo title='Today`s Sales' onPress={() => navigation.navigate('Sales Offers')} color='green'/>
                      <WelcomeButtonGo title="All Local Sales" onPress={() => navigation.navigate('Items')} color='primary'/>
                     
-                    <Image source={require('../app/assets/Logo.png')} style={styles.logo}/>
+                    <Image source={require('../app/assets/img/Logo.png')} style={styles.logo}/>
                 </ImageBackground>
                 
             </View>

@@ -12,7 +12,7 @@ import AppText from '../components/AppText';
 import PickerItem from './PickerItem';
 
 
-export default function AppPicker({ icon, items, placeholder, ...otherProps }) {
+export default function AppPicker({ icon, items,onSelectItem, placeholder, selectItem }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [email, setEmail] = useState(''); // Define the email state here
 
@@ -26,7 +26,7 @@ export default function AppPicker({ icon, items, placeholder, ...otherProps }) {
 
           <View style={styles.container}>
             <MaterialCommunityIcons name="tag" size={24} color={colors.green} style={styles.icon} />
-            <AppText style={styles.placeholder}>{placeholder}</AppText>
+            <AppText style={styles.placeholder}>{ selectItem ? selectItem.label : placeholder}</AppText>
             <FontAwesomeIcon icon={faChevronDown} size={24} color={colors.green} style={styles.iconC} />
           </View>
 
@@ -38,7 +38,6 @@ export default function AppPicker({ icon, items, placeholder, ...otherProps }) {
               keyboardType='email-address'
               maxLength={45}
               clearButtonMode='always'
-              {...otherProps}
               value={email} // Set the value of the input field to the email state
             />
           </View>
@@ -61,7 +60,11 @@ export default function AppPicker({ icon, items, placeholder, ...otherProps }) {
                 renderItem={({ item }) => (
                     <PickerItem  
                         label={item.label}
-                        onPress={() => console.log(item)}
+                        onPress={() => {
+                            setModalVisible(false)
+                            onSelectItem(item)
+                        }
+                        }
                     />
                 )}
             />
