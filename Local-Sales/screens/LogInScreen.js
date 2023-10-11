@@ -11,23 +11,23 @@ export default function InputScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogIn = () => {
-    if (!email || !password) {
+  // const handleLogIn = () => {
+  //   if (!email || !password) {
      
-      Alert.alert('Welcome to Local Sales App');
-      navigation.navigate('Account');
-    } else {
-      console.log('Navigating to Items screen');
+  //     Alert.alert('Welcome to Local Sales App');
+  //     navigation.navigate('Account');
+  //   } else {
+  //     console.log('Navigating to Items screen');
     
-    }
-  };
+  //   }
+  // };
 
   return (
     <Screen style={styles.container}>
       <InputText onChangeText={(text) => setEmail(text)}  />
-      <View style={styles.btn}>
+      {/* <View style={styles.btn}>
         <AppButton onPress={handleLogIn} title="LogIn" />
-      </View>
+      </View> */}
     </Screen>
   );
 }
