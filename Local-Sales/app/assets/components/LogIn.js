@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text, Image, Alert } from 'react-native';
+import { View, StyleSheet, Text, Image, Alert } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Formik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
@@ -9,6 +9,7 @@ import Screen from './Screen';
 import colors from '../config/colors';
 import defaultStyles from '../config/styles';
 import AppButton from './AppButton';
+import AppFormField from './AppFormField';
 
 
 const validationSchema = Yup.object().shape({
@@ -44,41 +45,43 @@ export default function InputText({ icon, ...otherProps }) {
           onSubmit={(values) => console.log(values)}
           validationSchema={validationSchema}
           >
-            { ({ handleChange, handleSubmit, errors }) => (
+            { ({ handleChange, handleSubmit, errors, name }) => (
               <>
               <View style={styles.container}>
                 <FontAwesome name='envelope' size={24} color={colors.green} style={styles.icon} />
                 
-                <TextInput
+                <AppFormField
                   autoCapitalize='none'
                   autoCorrect={false}
                   style={styles.textInput}
-                  onChangeText={handleChange('email')}
-                  keyboardType='default'
+                  name='email'
                   icon='lock'
                   maxLength={45}
                   placeholder="Email"
+                  textContentType='emailAddress'
                   clearButtonMode='always'
                   {...otherProps}
                 />
               </View>
+        
               <Text style={styles.errors}>{errors.email}</Text>
               <View style={styles.container}>
                 <FontAwesome name="lock" size={24} color={colors.green} style={styles.icon} />
 
-                <TextInput
+                <AppFormField
                   autoCapitalize='none'
                   autoCorrect={false}
                   style={defaultStyles.textLogIn}
-                  onChangeText={(handleChange('password'))}
                   keyboardType='email-address'
                   maxLength={45}
                   placeholder="Password"
+                  name='password'
                   secureTextEntry={true}
                   clearButtonMode='always'
                   {...otherProps}
                 />
               </View>
+              
               <Text style={styles.errors}>{errors.password}</Text>
               <AppButton  style={styles.btn}
                   title="LogIn" 
@@ -136,7 +139,5 @@ const styles = StyleSheet.create({
     color: colors.green,
     marginLeft: 25,
   },
-  textInput: {
-    flex: 1, 
-  },
+ 
 });
