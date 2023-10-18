@@ -8,8 +8,9 @@ import * as Yup from 'yup';
 import Screen from './Screen';
 import colors from '../config/colors';
 import defaultStyles from '../config/styles';
-import AppButton from './AppButton';
+//import AppButton from './AppButton';
 import AppFormField from './AppFormField';
+import SubmitButton from './SubmitButton';
 
 
 const validationSchema = Yup.object().shape({
@@ -21,18 +22,18 @@ export default function InputText({ icon, ...otherProps }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigation = useNavigation();
+   const navigation = useNavigation();
 
-  const handleLogIn = () => {
-       if (!email || !password) {
+  // const handleSubmit = () => {
+  //      if (!email || !password) {
        
-        Alert.alert('Welcome to Local Sales App');
-        navigation.navigate('Account');
-      } else {
-         Alert.alert('Error in email or/and password');
+  //       Alert.alert('Welcome to Local Sales App');
+  //       navigation.navigate('Account');
+  //     } else {
+  //        Alert.alert('Error in email or/and password');
       
-       }
-    };
+  //      }
+  //   };
 
   return (
     <Screen>
@@ -83,14 +84,15 @@ export default function InputText({ icon, ...otherProps }) {
               </View>
               
               <Text style={styles.errors}>{errors.password}</Text>
-              <AppButton  style={styles.btn}
+              {/* <AppButton  style={styles.btn}
                   title="LogIn" 
                   onPress={() => {
                       handleSubmit();
                       handleLogIn();
                     }}
-                  />
-
+                  /> */}
+                  <SubmitButton  title='LogIn' onPress={() => navigation.navigate('Account')}  />
+                
               </>
             )}
       </Formik> 
@@ -100,11 +102,6 @@ export default function InputText({ icon, ...otherProps }) {
 }
 
 const styles = StyleSheet.create({
-  btn: {
-    top: 22,
-    width:'80%',
-    marginLeft:42,
-  },
   container: {
     backgroundColor: colors.lightGray,
     borderRadius: 25,
